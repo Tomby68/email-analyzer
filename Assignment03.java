@@ -1,5 +1,3 @@
-package for_assignment3;
-
 import java.io.*;
 import java.util.*;
 import java.util.regex.Matcher;
@@ -14,9 +12,6 @@ public class Assignment03 {
 		Data d = new Data();
 		File file = new File(args[0]);
 		listFilesinDirectory(file, 0, emails, d);
-		//emails.forEach((key, value) -> {
-		//	System.out.println(key);
-		//});
 		
 		DisjointSet djs = new DisjointSet();
 		djs.createSets(emails.size());
@@ -24,33 +19,9 @@ public class Assignment03 {
 		createTeams(emails, djs);
 		
 		takeUserInput(emails, d, djs);
-		
-		//System.out.println(djs.toString());
-		
-		//System.out.println(emails.size());
-		//System.out.println(d.numEmails);
-		//System.out.println("Done");
-		
-		
 	}
 	
 	public static void listFilesinDirectory(File f, int tester, HashMap<String, TeamMember> emails, Data d) {
-		while (tester <= 2) {
-			System.out.println(f.getName());
-			File[] files = f.listFiles();
-			for (int i = 0; i < 5; i++) {
-				if (files[i].isDirectory()) {
-					f = files[i];
-					break;
-				} else {
-					System.out.println("File: " + files[i].getName());
-					readFile(files[i], emails, d);
-				}
-			}
-			tester++;
-		}
-		
-		/*
 		for (File entry : f.listFiles()) {
 			if (entry.isDirectory()) {
 				listFilesinDirectory(entry, tester, emails, d);
@@ -58,7 +29,6 @@ public class Assignment03 {
 				readFile(entry, emails, d);
 			}
 		}
-	    */
 	}
 	
 	
